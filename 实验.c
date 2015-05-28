@@ -1,9 +1,14 @@
 #include<stdio.h>
 #include<string.h>
 #include"实验.h"
-int login(cust p,char*name,int*time,int key,int*q)
+int login(cust p,char*name,int*time,int key,int*q)//登陆
 {
-    int i;
+    int i=0;
+    if(key>999999||key<10000)
+        {printf("密码为六位数请重新输入");
+        (*time)++;
+        return 0;}
+
 	for(i=0;i<number;i++)
 	{
 		if(strcmp(p[i].account,name)==0)
@@ -28,7 +33,7 @@ int login(cust p,char*name,int*time,int key,int*q)
 	return 1;
 
 }
-void getmoney(cust p)
+void getmoney(cust p)//取钱
 {
 	int money;
 	printf("请输入取款金额：");
@@ -42,7 +47,7 @@ void getmoney(cust p)
 	p->money=(p->money)-money;
 	remain(p);
 }
-void savemoney(cust p)
+void savemoney(cust p)//存钱
 {
 	int money;
 	printf("请输入您的存款金额：\n");
@@ -50,7 +55,7 @@ void savemoney(cust p)
 	p->money=(p->money)+money;
 	remain(p);
 }
-void draw(cust p)
+void draw(cust p)//转账
 {
 	char receiver[30];
 	int money=0;
@@ -79,11 +84,11 @@ void draw(cust p)
 		printf("您输入的账户不存在！转账失败！");
 	}
 }
-void remain(cust p)
+void remain(cust p)//查询余额
 {
 	printf("您的账户余额：%f\n",p->money);
 }
-void Register(cust p)
+void Register(cust p)//注册
 {
 	char word='y';
 
@@ -127,7 +132,7 @@ void Register(cust p)
 	}
 
 }
-void choosefunc(int	 *a)
+void choosefunc(int	 *a)//选择服务项目
 {
 	printf("请选择服务项目：\n");
 	printf("取款请输入1\n存款请输入2\n查询余额请输入3\n转账请输入4\n安全退出请输入5\n");
