@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1432785785 source:e:\shiyan\main.c
-	<stdio.h>
-	"实验.h"
-
-1432785785 e:\shiyan\实验.h
-	<stdio.h>
-
